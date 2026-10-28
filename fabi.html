@@ -1,0 +1,16 @@
+<html>
+<script>
+function fibo(){
+let n1=0,n2=1,n3,i;
+let num=parseInt(prompt("Enter a num:"));
+document.write("Fibonacci series");
+for(i=0;i<=num;i++){
+n3=n1+n2;
+n1=n2;
+n2=n3;
+document.write(n1+"<br>");
+}
+}
+fibo();
+</script>
+</html>

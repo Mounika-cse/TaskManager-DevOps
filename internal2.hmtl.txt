@@ -1,0 +1,31 @@
+<html>
+<title>Employee</title>
+<script>
+class Person{
+constructor(name,age){
+this.name=name;
+this.age=age;
+}
+displaypersondetails(){
+return`Name:${this.name},Age:${this.age}`;
+}
+}
+class Employee extends Person{
+constructor(name,age,role){
+super(name,age);
+this.role=role;
+}
+displayemployeedetails(){
+let persondetails=this.displaypersondetils();
+return`${persondetails},Role:${this.role}`;
+}
+}
+function showemployeedetails(){
+let emp=new employee["Prasanna",23,"Software"];
+document.getElementById("output").innerHTML=emp.displayemployeedetails();
+}
+</script>
+<body>Employee details:
+<button onclick="showemployeedetails">Click to know</button>
+<p id="output"></p>
+</html>

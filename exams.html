@@ -1,0 +1,25 @@
+<html>
+<script>
+function csum(){
+  let num=parseInt(prompt("Enter a number:"));
+  if (isNaN(num)){
+    alert("Invalid");
+    return;
+    }
+  let sum=num;
+  let another =confirm("Do you want to add another number? ");
+  if(another){
+    let number=parseInt(prompt("Enter a number"));
+  if(!isNaN(number)){
+     sum+=number;
+}
+  else{
+     alert("Enter valid:");
+}
+}
+  alert("The sum is"+sum);
+}
+csum();
+</script>
+</html>
+   

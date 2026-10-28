@@ -1,0 +1,23 @@
+<html>
+<script>
+function palin(){
+var num=parseInt(prompt("Enter a number:"));
+if(isNaN(num)){
+  alert("Enter a valid number:")
+}
+var original=num;
+var rev=0;
+while(num>0){
+var rev=rev*10+num%10;
+num=Math.floor(num/10);
+}
+if(rev==original){
+  alert("Palindrome");
+}
+else{
+  alert("Not a palindrome");
+}
+}
+palin();
+</script>
+</html>

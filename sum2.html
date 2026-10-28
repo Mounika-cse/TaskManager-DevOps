@@ -1,0 +1,28 @@
+<html>
+<script>
+function calculateSum() {
+  let n = parseInt(prompt("Enter the first number (n):"));
+
+  if (isNaN(n)) {
+    alert("Invalid input for the first number. Please enter a number.");
+    return;
+  }
+
+  let sum = n;
+  let addMore = confirm("Do you want to add another number?");
+
+  if (addMore) {
+    let secondNumber = parseInt(prompt("Enter the second number to add:"));
+    if (!isNaN(secondNumber)) {
+      sum += secondNumber;
+    } else {
+      alert("Invalid input for the second number. It was not added to the sum.");
+    }
+  }
+
+  alert("The sum of the entered numbers is: " + sum);
+}
+
+calculateSum();
+</script>
+</html>

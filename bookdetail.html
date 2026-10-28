@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Book Details</title>
+<style>
+body {
+font-family:Arial,sans-serif;
+padding:20px;
+}
+h1 {
+text-align:center;
+margin-bottom:30px;
+}
+.book-entry {
+margin-bottom:20px;
+}
+.book-entry h2 {
+margin:0 0 5px 0;
+}
+.book-entry p {
+margin:2px 0;
+}
+</style>
+</head>
+<body>
+<h1>Book Details</h1>
+<div id="bookList"></div>
+<script>
+const bookDetails=[
+{title:"The Great Gatsby",price:10.99,author:"F. Scott Fitzgerald",genre:"Classic"},
+{title:"To Kill a Mockingbird",price:12.99,author:"Harper Lee",genre:"Classic"},
+{title:"1984",price:11.99,author:"George Orwell",genre:"Dystopian"},
+{title:"Pride and Prejudice",price:9.99,author:"Jane Austen",genre:"Romance"},
+{title:"The Catcher in the Rye",price:13.99,author:"J.D. Salinger",genre:"Literary Fiction"},
+{title:"The Lord of the Rings",price:14.99,author:"J.R.R. Tolkien",genre:"Fantasy"},
+{title:"The Hitchhiker's Guide to the Galaxy",price:8.99,author:"Douglas Adams",genre:"Science Fiction"},
+{title:"Jane Eyre",price:10.49,author:"Charlotte Brontë",genre:"Gothic Romance"}
+];
+const bookListDiv=document.getElementById("bookList");
+bookDetails.forEach(book=>{
+const bookCard=document.createElement("div");
+bookCard.className="book-entry";
+bookCard.innerHTML=
+`<h2>${book.title}</h2>
+<p><strong>Price:</strong> $${book.price.toFixed(2)}</p>
+<p><strong>Genre:</strong> ${book.genre}</p>
+<p><strong>Author:</strong> ${book.author}</p>`;
+bookListDiv.appendChild(bookCard);
+});
+</script>
+</body>
+</html>

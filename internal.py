@@ -1,0 +1,5 @@
+print("welcome to python programming:")
+print("GVPCEW")
+print("Department of cse")
+print("Visakhapatnam")
+print("welcome to python prograaming\ndepartment of cse\nGVPCEW\nVisakhapatnam")

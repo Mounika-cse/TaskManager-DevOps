@@ -1,0 +1,34 @@
+<html>
+<title>Employee and person classes</title>
+<script type="text/javascript">
+class Person{
+constructor(name,age){
+this.name=name;
+this.age=age;
+}
+displayPersonDetails(){
+return`Name:${this.name},Age:${this.age}`;
+}
+}
+class Employee extends Person{
+constructor(name,age,role){
+super(name,age);
+this.role=role;
+}
+displayEmployeeDetails(){
+let personDetails=this.displayPersonDetails();
+return`${personDetails},Role:${this.role}`;
+}
+}
+function showEmployeeDetails(){
+let emp=new Employee("Prasanna",25,"softwaredeveloper");
+document.getElementById("output").innerHTML=emp.displayEmployeeDetails();
+}
+</script>
+</head>
+<body>
+<h2>Employee and Person Class Example</h2>
+<button onclick="showEmployeeDetails()">Click to know about a employee!</button>
+<p id="output"></p><!--Here the employee details will be displayed-->
+</body>
+</html>

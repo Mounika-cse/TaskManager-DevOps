@@ -1,0 +1,35 @@
+<html> 
+<style> h1 
+{ 
+color:black; 
+text-align: center; 
+} 
+textbox1 
+{ 
+color: orange; font-size: 30px; 
+font-weight: bold; 
+} 
+</style> 
+<body bgcolor="powderblue"> 
+<center>    
+<h1> Select the country name to find its capital</h1> 
+<form action="">  
+Select Country <select name="country" id="capital" onclick="myFunction()" > 
+<option value="NEW DELHI">INDIA</option> 
+<option value="OTTAWA">CANADA</option>   
+<option value="ROME">ITALY</option> 
+<option value="MADRID">SPAIN</option> 
+<option value="MOSCOW">RUSSIA</option> 
+</select><br><br> 
+Capital <input type="text" class="textbox1" id="demo"> 
+</form> 
+</center> 
+<script> 
+function myFunction() 
+{ 
+var a=document.getElementById("capital").value;  
+document.getElementById("demo").value=a; 
+} 
+</script> 
+</body> 
+</html> 

@@ -1,0 +1,21 @@
+<html>
+<script>
+function arm(){
+var num=prompt("Enter a num:");
+var originalnum=parseInt(num);
+var sum=0;
+var t=num.length;
+for (var i=0;i<t;i++){
+  var digit=parseInt(num.charAt(i));
+  sum+=Math.pow(digit,t);
+}
+if(sum==originalnum){
+  alert("Armstrong");
+}
+else{
+  alert("Not");
+}
+}
+arm();
+</script>
+</html>

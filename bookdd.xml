@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE books SYSTEM "bookdd.dtd">
+<books>
+  <book>
+    <title>Wings of Fire</title>
+    <author>A.P.J. Abdul Kalam</author>
+    <publisher>Universities Press</publisher>
+    <edition>15th Edition</edition>
+    <isbn>978-8173711466</isbn>
+    <price>12.50</price>
+  </book>
+  <book>
+    <title>India 2020: A Vision for the New Millennium</title>
+    <author>A.P.J. Abdul Kalam</author>
+    <publisher>Penguin Books</publisher>
+    <edition>10th Anniversary Edition</edition>
+    <isbn>978-0140278333</isbn>
+    <price>11.00</price>
+  </book>
+  <book>
+    <title>My Truth</title>
+    <author>Indira Gandhi</author>
+    <publisher>Indira Gandhi Memorial Trust</publisher>
+    <edition>First Edition</edition>
+    <isbn>978-8123001234</isbn>
+    <price>13.75</price>
+  </book>
+  <book>
+    <title>Wise and Otherwise</title>
+    <author>Sudha Murty</author>
+    <publisher>Penguin India</publisher>
+    <edition>Revised Edition</edition>
+    <isbn>978-0143062229</isbn>
+    <price>10.00</price>
+  </book>
+  <book>
+    <title>The Day I Stopped Drinking Milk</title>
+    <author>Sudha Murty</author>
+    <publisher>Penguin India</publisher>
+    <edition>First Edition</edition>
+    <isbn>978-0143418316</isbn>
+    <price>9.50</price>
+  </book>
+</books>

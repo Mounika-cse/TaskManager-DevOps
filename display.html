@@ -1,0 +1,38 @@
+<html>
+<script>
+class Person{
+constructor(name,age){
+this.name=name;
+this.age=age;
+}
+displaypersondetails(){
+return`Name:${this.name},age:${this.age}`;
+}
+}
+class Employee extends Person{
+constructor(name,age,role){
+super(name,age);
+this.role=role;
+}
+displayemployeedetails(){
+let persondetails=this.displaypersondetails();
+return`${persondetails},Role:${this.role}`;
+}
+}
+function showemployeedetails(){
+const employees=[
+new Employee("Prasanna",23,"Manager"),
+new Employee("Mounika",25,"Gamer"),
+];
+let output="";
+for(let i=0;i<employees.length;i++){
+   output+=`<p>${i+1}.${employees[i].displayemployeedetails()}</p>`
+}
+document.getElementById("output").innerHTML=output;
+}
+</script>
+<body>
+<button onclick="showemployeedetails()">Show Details of the person!!</button>
+<p id="output"></p>
+</body>
+</html>

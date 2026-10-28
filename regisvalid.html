@@ -1,0 +1,63 @@
+<html>
+<script>
+function validateform(){
+  let firstname=document.forms["regForm"]["firstname"].value.trim();
+  let lastname=document.forms["regForm"]["lastname"].value.trim();
+  let adress=document.forms["regForm"]["adress"].value.trim();
+  let email=document.forms["regForm"]["email"].value.trim();
+  let password=document.forms["regForm"]["password"].value;
+  let mobile=document.forms["regForm"]["mobile"].value.trim();
+  const nameRegex=/^[a-zA-Z]{6,}$/;
+  if(!nameRegex.test(firstname)){
+    alert("First name not valid");
+    return false;
+  }
+  if(lastname===""){
+    alert("last name not valid");
+    return false;
+  }
+  if(adress===""){
+    alert("Adress name not valid");
+    return false;
+  }
+  const emailRegex=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/;
+  if(!emailRegex.test(email)){
+    alert("Email not valid i.e..,example@gmail.com");
+    return false;
+  }
+  if(password.length<6){
+  alert("Error");
+  return false;
+  }
+  const mobileRegex=/^\d{10}$/;
+  if(!mobileRegex.test(mobile)){
+    alert("Mobile number not valid");
+    return false;
+  }
+  alert("Successfull");
+  return true;
+  }
+</script>
+<body>
+<h1>Registration with validation</h1>
+<form name="regForm" onsubmit="return validateform()">
+First name:<br><br>
+<input type="text" name="firstname" ><br><br>
+Last name:<br><br>
+<input type="text" name="lastname" ><br><br>
+Adress:<br><br>
+<input type="text area" name="adress" ><br><br>
+Email:<br><br>
+<input type="text" name="email" ><br><br>
+Password:<br><br>
+<input type="password" name="password" ><br><br>
+Mobile:<br><br>
+<input type="text" name="mobile" ><br><br>
+<input type="submit" name="Register" ><br><br>
+</form>
+</body>
+</html>
+
+
+
+  

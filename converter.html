@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number to Words</title>
+  <style>
+    body {
+      background-color: #e0f7fa; /* Light blue background */
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    h2 {
+      color: #006064;
+    }
+
+    #numberInput {
+      width: 300px;
+      height: 50px;
+      font-size: 24px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #00796b;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 12px 25px;
+      margin-left: 10px;
+      border-radius: 8px;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #004d40;
+    }
+
+    #output {
+      margin-top: 30px;
+      font-size: 24px;
+      color: #004d40;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Convert Number to Words (0 - 999)</h2>
+
+<input type="number" id="numberInput" placeholder="Enter number (0-999)" min="0" max="999">
+<button onclick="convertToWords()">Convert</button>
+
+<p id="output"></p>
+
+<script>
+function convertToWords() {
+  const input = document.getElementById("numberInput").value;
+
+  if (input.trim() === "") {
+    document.getElementById("output").textContent = "Please enter a number.";
+    return;
+  }
+
+  const number = parseInt(input);
+
+  if (isNaN(number) || number < 0 || number > 999) {
+    document.getElementById("output").textContent = "Invalid input. Enter a number between 0 and 999.";
+    return;
+  }
+
+  const units = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+  const teens = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
+  const tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+
+  function getWords(n) {
+    if (n === 0) {
+      return "zero";
+    } else if (n < 10) {
+      return units[n];
+    } else if (n < 20) {
+      return teens[n - 10];
+    } else if (n < 100) {
+      const tenDigit = Math.floor(n / 10);
+      const unitDigit = n % 10;
+      return tens[tenDigit] + (unitDigit === 0 ? "" : "-" + units[unitDigit]);
+    } else {
+      const hundredDigit = Math.floor(n / 100);
+      const remaining = n % 100;
+      return units[hundredDigit] + " hundred" + (remaining === 0 ? "" : " and " + getWords(remaining));
+    }
+  }
+
+  const words = getWords(number);
+  document.getElementById("output").textContent = "The number in words is: " + words;
+}
+</script>
+
+</body>
+</html>

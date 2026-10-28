@@ -1,0 +1,24 @@
+body{
+background-color:Yellow;
+color:Black;
+}
+p{
+color:Green;
+margin-left: 20px;
+}
+h2{
+color:Red;
+margin-left: 20px;
+}
+h3{
+color:maroon;
+margin-left: 20px;
+}
+h4{
+color:navy;
+margin-left:20px;
+}
+h5{
+color:#800080;
+margin-left:20px;
+}

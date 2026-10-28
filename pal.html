@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Palindrome Checker</title>
+</head>
+<body>    
+<label for="number">Enter a number: </label>
+<input type="number" id="number" required>
+<button onclick="Palindrome()">Check</button>
+<p id="pal"></p>
+<script>
+function Palindrome() {
+var num = document.getElementById("number").value;
+var originalNum = num;
+var rev = 0;
+while (num > 0) {
+var digit = num % 10;  // Get the last digit
+rev = (rev * 10) + digit;  // Add the digit to the reversed number
+ num = Math.floor(num / 10);  // Remove the last digit from the number
+}
+if (originalNum == rev) {
+document.getElementById("pal").textContent =  "palindrome number.";
+} else {
+document.getElementById("pal").textContent = " is not a palindrome number.";
+}
+}
+</script>
+</body>
+</html>

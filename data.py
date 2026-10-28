@@ -1,0 +1,10 @@
+num1=5
+print(type(num1))
+num2=22.7
+print(type(num2))
+complex=2+3j
+print(type(complex))
+bool=True
+print(type(bool))
+string="Python"
+print(type(string))

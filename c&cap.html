@@ -1,0 +1,52 @@
+   <html>
+<head>
+	<title>Country Capitals</title>
+</head>
+<body>
+	<button onclick="displayCapital('India')">India</button><br>
+<br>
+	<button onclick="displayCapital('United States')">United States</button><br>
+<br>
+	<button onclick="displayCapital('Canada')">Canada</button><br>
+<br>
+	<button onclick="displayCapital('Mexico')">Mexico</button><br>
+<br>
+	<button onclick="displayCapital('United Kingdom')">United Kingdom</button><br>
+<br>
+	<button onclick="displayCapital('Germany')">Germany</button><br>
+<br>
+	<button onclick="displayCapital('France')">France</button><br>
+<br>
+	<button onclick="displayCapital('China')">China</button><br>
+<br>
+	<button onclick="displayCapital('Japan')">Japan</button><br>
+<br>
+	<button onclick="displayCapital('Australia')">Australia</button><br>
+<br>
+	<button onclick="displayCapital('Brazil')">Brazil</button><br>
+<br>
+	<button onclick="displayCapital('South Africa')">South Africa</button><br>
+	<p id="capital"></p>
+
+	<script>
+		function displayCapital(country) {
+			var capitals = {
+                                "India": "New Delhi",
+				"United States": "Washington D.C.",
+				"Canada": "Ottawa",
+				"Mexico": "Mexico City",
+				"United Kingdom": "London",
+				"Germany": "Berlin",
+				"France": "Paris",
+				"China": "Beijing",
+				"Japan": "Tokyo",
+				"Australia": "Canberra",
+				"Brazil": "Brasilia",
+				"South Africa": "Pretoria"
+			};
+
+			document.getElementById("capital").innerHTML = capitals[country];
+		}
+	</script>
+</body>
+</html>

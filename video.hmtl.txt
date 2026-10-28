@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Library Video</title>
+</head>
+<body>
+
+    <h1>A Glimpse into Our College Library</h1>
+
+    <p>Take a virtual tour of our college library and see the resources and environment it offers to students.</p>
+
+    <video width="640" height="360" controls>
+        <source src="your-library-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <p>We encourage you to visit the library in person to explore its vast collection and utilize its study spaces.</p>
+
+</body>
+</html>

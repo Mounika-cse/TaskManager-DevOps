@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>Registration Form</title>
+<style>
+  .error {
+    color: red;
+  }
+</style>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+<form id="registrationForm">
+First name:<input type="text" id="firstname" name="firstname">
+<span id="firstnameErr" class="error"></span><br><br>
+Lastname:<input type="text" name="lastname">
+<span id="lastnameErr" class="error"></span>
+<br><br>
+Email:<input type="text" name="email">
+<span id="emailErr" class="error"></span>
+<br><br>
+Phone number:<input type="text" name="phone">
+<span id="phoneErr" class="error"></span>
+<br><br>
+Address:<input type="text"   name="address">
+<span id="addressErr" class="error"></span>
+<br><br>
+<button type="button" onclick="validateForm()">Submit</button>
+<button type="reset">Reset</button>
+ <p id="successMessage" style="color: green; display: none;">Submitted successfully!</p>
+</form>
+
+<script>
+function validateForm() {
+  var firstname = document.getElementById("firstname").value;
+  var lastname = document.getElementById("lastname").value;
+  var email = document.getElementById("email").value;
+  var phone = document.getElementById("phone").value;
+  var address = document.getElementById("address").value;
+
+  var firstnameErr = document.getElementById("firstnameErr");
+  var lastnameErr = document.getElementById("lastnameErr");
+  var emailErr = document.getElementById("emailErr");
+  var phoneErr = document.getElementById("phoneErr");
+  var addressErr = document.getElementById("addressErr");
+  var successMessage = document.getElementById("successMessage");
+
+  var isValid = true;
+  var nameRegex = /^[A-Za-z]+$/;
+  if (firstname === "") {
+    firstnameErr.textContent = "First name is required";
+    isValid = false;
+  }else if (!nameRegex.test(firstname)) {
+   firstnameErr.textContent = "First name should contain only letters";
+   isValid = false;
+  }else {
+   firstnameErr.textContent = "";
+  } 
+  if (lastname === "") {
+    lastnameErr.textContent = "Last name is required";
+    isValid = false;
+  } else if (!nameRegex.test(lastname)) {
+    lastnameErr.textContent = "Last name should contain only letters";
+    isValid = false;
+  } else {
+    lastnameErr.textContent = "";
+  }
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (email === "") {
+    emailErr.textContent = "Email is required";
+    isValid = false;
+  } else if (!emailRegex.test(email)) {
+    emailErr.textContent = "Invalid email format";
+    isValid = false;
+  } else {
+    emailErr.textContent = "";
+  }
+  var phoneRegex = /^[0-9]{10}$/;
+  if (phone === "") {
+    phoneErr.textContent = "Phone number is required";
+    isValid = false;
+  } else if (!phoneRegex.test(phone)) {
+    phoneErr.textContent = "Phone number should contain 10 digits";
+    isValid = false;
+  } else {
+    phoneErr.textContent = "";
+  }
+  if (address === "") {
+    addressErr.textContent = "Address is required";
+    isValid = false;
+  } else {
+    addressErr.textContent = "";
+  }
+
+  if (isValid) {
+    successMessage.style.display = "block";
+      } else {
+    successMessage.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>

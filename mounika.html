@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    #taskForm {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    #taskForm input, #taskForm select {
+      padding: 10px;
+      font-size: 16px;
+    }
+    #taskList {
+      list-style: none;
+      padding: 0;
+    }
+    .task {
+      background: white;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-left: 5px solid gray;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .task.low { border-color: green; }
+    .task.medium { border-color: orange; }
+    .task.high { border-color: red; }
+    .actions button {
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Task Manager</h1>
+  <form id="taskForm">
+    <input type="text" id="taskInput" placeholder="Enter task" required />
+    <select id="priority">
+      <option value="low">Low</option>
+      <option value="medium" selected>Medium</option>
+      <option value="high">High</option>
+    </select>
+    <button type="submit">Add Task</button>
+  </form>
+
+  <ul id="taskList"></ul>
+
+  <script>
+    const taskForm = document.getElementById('taskForm');
+    const taskInput = document.getElementById('taskInput');
+    const prioritySelect = document.getElementById('priority');
+    const taskList = document.getElementById('taskList');
+
+    let tasks = [];
+
+    taskForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      addTask(taskInput.value, prioritySelect.value);
+      taskInput.value = '';
+    });
+
+    function addTask(text, priority) {
+      const task = { id: Date.now(), text, priority };
+      tasks.push(task);
+      renderTasks();
+    }
+
+    function editTask(id) {
+      const task = tasks.find(t => t.id === id);
+      const newText = prompt('Edit task:', task.text);
+      if (newText) {
+        task.text = newText;
+        renderTasks();
+      }
+    }
+
+    function deleteTask(id) {
+      tasks = tasks.filter(t => t.id !== id);
+      renderTasks();
+    }
+
+    function renderTasks() {
+      taskList.innerHTML = '';
+      tasks.forEach(task => {
+        const li = document.createElement('li');
+        li.className = task ${task.priority};
+        li.innerHTML = `
+          <span>${task.text}</span>
+          <div class="actions">
+            <button onclick="editTask(${task.id})">Edit</button>
+            <button onclick="deleteTask(${task.id})">Delete</button>
+          </div>
+        `;
+        taskList.appendChild(li);
+      });
+    }
+  </script>
+
+</body>
+</html>

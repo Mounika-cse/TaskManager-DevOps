@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>Fibonacci Series</title>
+</head>
+<body>
+<p id="fibonacci"></p>
+<script>
+function fibonacciSeries(n) {
+let fib = [0,1]; 
+for (let i = 2; i < n; i++) {
+fib[i] = fib[i - 1] + fib[i - 2];             }
+return fib;
+}
+const fibSeries = fibonacciSeries(10);
+document.getElementById("fibonacci").innerText = fibSeries.join(", ");
+</script>
+</body>
+</html>

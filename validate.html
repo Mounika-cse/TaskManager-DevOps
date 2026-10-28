@@ -1,0 +1,58 @@
+<html>
+<script>
+function validateform(){
+  let firstname=document.forms["regForm"]["firstname"].value.trim();
+  let lastname=document.forms["regForm"]["lastname"].value.trim();
+  let adress=document.forms["regForm"]["adress"].value.trim();
+  let email=document.forms ["regForm"]["email"].value.trim();
+  let phone = document.forms ["regForm"]["phone"].value.trim();
+  let password=document.forms["regForm"]["password"].value;
+  const nameRegex=/^[a-zA-Z]{6,}$/;
+  if(!nameRegex.test(firstname)){
+    alert("Enter first name");
+    return false;
+}
+  if(lastname===""){
+    alert("Enter last name");
+    return false;
+}
+  if(adress===""){
+    alert("Enter address");
+    return false;
+}
+  const emailRegex=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if(!emailRegex.test(email)){
+    alert("Enter email:");
+    return false;
+}
+  const phoneRegex=/^\d{10}$/;
+  if(!phoneRegex.test(phone)){
+    alert("Enter phone");
+    return false;
+}
+  if(password.length<6){
+    alert("Enter pass:");
+    return false;
+}
+  alert("Successfull:");
+  return true;
+}
+</script>
+<body>
+<form name="regForm" onsubmit=" return validateform()">
+Firstname:<br>
+<input type="text" name="firstname"><br>
+lastname<br>
+<input type="text" name="lastname"><br>
+address<br>
+<input type="text" name="adress"><br>
+email:<br>
+<input type="text" name="email"><br>
+phone:<br>
+<input type="text" name="phone"><br>
+password:<br>
+<input type="password" name="password"><br>
+Submit:<input type="submit" value="Submit">
+
+</body>
+</html>

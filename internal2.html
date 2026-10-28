@@ -1,0 +1,39 @@
+<html>
+<title>Employee</title>
+<script>
+class Person{
+constructor(name,age){
+this.name=name;
+this.age=age;
+}
+displaypersondetails(){
+return`Name:${this.name},Age:${this.age}`;
+}
+}
+class Employee extends Person{
+constructor(name,age,role){
+super(name,age);
+this.role=role;
+}
+displayemployeedetails(){
+let persondetails=this.displaypersondetails();
+return`${persondetails},Role:${this.role}`;
+}
+}
+function showemployeedetails(){
+const employees=[
+ new Employee("prasu",23,"SD"),
+ new Employee("presssy",24,"Sem"),
+ new Employee("pra",26,"SM"),
+ new Employee("pr",23,"pp"),];
+let output="";
+for(let i=0;i<employees.length;i++){
+  output+=`<p>${i+1}.${employees[i].displayemployeedetails()}</p>`;
+ }
+document.getElementById("output").innerHTML=output;
+}
+</script>
+<body>Employee details:
+<button onclick="showemployeedetails()">Click to know</button>o
+<p id="output"></p>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>Factorial of a number</title>
+</head>
+<body>
+<div id="demo"></div>
+<label for="number">Enter a number: </label>
+<input type="number" id="number" min="0"><br>
+<button onclick="factorial()">factorial</button>
+<script>
+function factorial() {
+let n = document.getElementById("number").value; 
+n = parseInt(n); // Convert input to integer
+if (isNaN(n) || n < 0) {
+document.getElementById("demo").innerHTML = "Negative";
+ return;
+}
+let fact = 1;
+for (let i = 1; i <= n; i++) {
+fact *= i;
+}
+document.getElementById("demo").innerHTML = "factorial is: " + fact;
+}
+</script>
+</body>
+</html>

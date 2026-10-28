@@ -1,0 +1,16 @@
+<html>
+<script>
+function mul(){
+let num = parseInt(prompt("Enter a number to get it's Table"));
+if(isNaN(num)){
+  alert("please enter a valid number:");
+}
+let table="multiplication table of"+num+":\n";
+for (i=1;i<=10;i++){
+  table+=num+"*"+i+"="+(num*i)+":\n";
+}
+alert(table);
+}
+mul();
+</script>
+</html>

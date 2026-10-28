@@ -1,0 +1,62 @@
+<html>
+<head>
+  <title>Registration Form </title>
+  <script>
+    function validateForm() {
+      let firstName = document.forms["regForm"]["firstName"].value.trim();
+      let lastName = document.forms["regForm"]["lastName"].value.trim();
+      let address = document.forms["regForm"]["address"].value.trim();
+      let password = document.forms["regForm"]["password"].value;
+      let email = document.forms["regForm"]["email"].value.trim();
+      let mobile = document.forms["regForm"]["mobile"].value.trim();
+      const nameRegex = /^[A-Za-z]{6,}$/;
+      if (!nameRegex.test(firstName)) {
+        alert("First Name must contain only alphabets and be at least 6 characters long.");
+        return false;
+      }
+      if (lastName === "") {
+        alert("Last Name cannot be empty.");
+        return false;
+      }
+      if (address === "") {
+        alert("Address cannot be empty.");
+        return false;
+      }
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return false;
+      }
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/;
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address (e.g. name@domain.com).");
+        return false;
+      }
+      const mobileRegex = /^\d{10}$/;
+      if (!mobileRegex.test(mobile)) {
+        alert("Mobile Number must be exactly 10 digits.");
+        return false;
+      }
+      alert("Form submitted successfully!");
+      return true;
+    }
+  </script>
+</head>
+<body> 
+<h2>Registration Form with Validations:</h2>
+<form name="regForm" onsubmit="return validateForm()">
+First Name:<br>
+<input type="text" name="firstName"><br><br>
+Last Name:<br>
+<input type="text" name="lastName"><br><br>
+Address:<br>
+<input type="textarea" name="address" rows="4" cols="10"><br><br>
+Password:<br>
+<input type="password" name="password"><br><br>
+E-mail ID:<br>
+<input type="text" name="email"><br><br>
+Mobile Number:<br>
+<input type="text" name="mobile"><br><br>
+<input type="submit" value="Register">
+</form>
+</body>
+</html>

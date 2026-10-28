@@ -1,0 +1,50 @@
+<html>
+<head>
+  <title>Employee and Person Classes</title>
+  <script type="text/javascript">
+    class Person {
+      constructor(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+
+      displayPersonDetails() {
+        return `Name: ${this.name}, Age: ${this.age}`;
+      }
+    }
+
+    class Employee extends Person {
+      constructor(name, age, role) {
+        super(name, age);
+        this.role = role;
+      }
+
+      displayEmployeeDetails() {
+        let personDetails = this.displayPersonDetails();
+        return `${personDetails}, Role: ${this.role}`;
+      }
+    }
+
+    function showEmployeeDetails() {
+      const employees = [
+        new Employee("Prasanna", 25, "Software Developer"),
+        new Employee("Anjali", 30, "UI/UX Designer"),
+        new Employee("Ravi", 28, "Backend Developer"),
+        new Employee("Sneha", 27, "QA Engineer"),
+        new Employee("Arjun", 35, "Project Manager")
+      ];
+
+      let output = "";
+      for (let i = 0; i < employees.length; i++) {
+        output += `<p>${i + 1}. ${employees[i].displayEmployeeDetails()}</p>`;
+      }
+      document.getElementById("output").innerHTML = output;
+    }
+  </script>
+</head>
+<body>
+  <h2>Employee and Person Class Example</h2>
+  <button onclick="showEmployeeDetails()">Click to know about 5 employees!</button>
+  <div id="output"></div>
+</body>
+</html>

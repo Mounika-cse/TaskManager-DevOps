@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background: #f0f2f5;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    input, select, button {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .task-list {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .task {
+      background: white;
+      padding: 1rem;
+      margin-bottom: 0.5rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .task-actions {
+      margin-top: 0.5rem;
+    }
+
+    .task-actions button {
+      margin-right: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Task Manager</h1>
+
+  <form id="taskForm">
+    <input type="text" id="title" placeholder="Task Title" required />
+    <input type="text" id="description" placeholder="Task Description" required />
+    <select id="priority" required>
+      <option value="" disabled selected>Select Priority</option>
+      <option value="High">High</option>
+      <option value="Medium">Medium</option>
+      <option value="Low">Low</option>
+    </select>
+    <button type="submit">Add Task</button>
+  </form>
+
+  <div class="task-list" id="taskList"></div>
+
+  <script>
+    const taskForm = document.getElementById('taskForm');
+    const taskList = document.getElementById('taskList');
+
+    let tasks = [];
+
+    const priorityValue = { High: 3, Medium: 2, Low: 1 };
+
+    taskForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const title = document.getElementById('title').value;
+      const description = document.getElementById('description').value;
+      const priority = document.getElementById('priority').value;
+
+      const task = { title, description, priority };
+      tasks.push(task);
+      renderTasks();
+      taskForm.reset();
+    });
+
+    function renderTasks() {
+      taskList.innerHTML = '';
+
+      tasks
+        .sort((a, b) => priorityValue[b.priority] - priorityValue[a.priority])
+        .forEach((task, index) => {
+          const taskDiv = document.createElement('div');
+          taskDiv.className = 'task';
+          taskDiv.innerHTML = `
+            <strong>${task.title}</strong><br />
+            ${task.description}<br />
+            <em>Priority: ${task.priority}</em>
+            <div class="task-actions">
+              <button onclick="editTask(${index})">Edit</button>
+              <button onclick="deleteTask(${index})">Delete</button>
+            </div>
+          `;
+          taskList.appendChild(taskDiv);
+        });
+    }
+
+    function editTask(index) {
+      const task = tasks[index];
+      document.getElementById('title').value = task.title;
+      document.getElementById('description').value = task.description;
+      document.getElementById('priority').value = task.priority;
+
+      deleteTask(index);
+    }
+
+    function deleteTask(index) {
+      tasks.splice(index, 1);
+      renderTasks();
+    }
+  </script>
+
+</body>
+</html>

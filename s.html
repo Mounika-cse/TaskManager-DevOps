@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Form</title>
+<style>
+  .error {
+    color: red;
+  }
+</style>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form id="registrationForm">
+  <div>
+    <label for="firstname">First Name:</label>
+    <input type="text" id="firstname" name="firstname">
+    <span id="firstnameErr" class="error"></span>
+  </div>
+  <br>
+  <div>
+    <label for="lastname">Last Name:</label>
+    <input type="text" id="lastname" name="lastname">
+    <span id="lastnameErr" class="error"></span>
+  </div>
+  <br>
+  <div>
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email">
+    <span id="emailErr" class="error"></span>
+  </div>
+  <br>
+  <div>
+    <label for="phone">Phone Number:</label>
+    <input type="text" id="phone" name="phone">
+    <span id="phoneErr" class="error"></span>
+  </div>
+  <br>
+  <div>
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address">
+    <span id="addressErr" class="error"></span>
+  </div>
+  <br>
+  <button type="button" onclick="validateForm()">Submit</button>
+  <button type="reset">Reset</button>
+  <p id="successMessage" style="color: green; display: none;">Submitted successfully!</p>
+</form>
+
+<script>
+function validateForm() {
+  var firstname = document.getElementById("firstname").value;
+  var lastname = document.getElementById("lastname").value;
+  var email = document.getElementById("email").value;
+  var phone = document.getElementById("phone").value;
+  var address = document.getElementById("address").value;
+
+  var firstnameErr = document.getElementById("firstnameErr");
+  var lastnameErr = document.getElementById("lastnameErr");
+  var emailErr = document.getElementById("emailErr");
+  var phoneErr = document.getElementById("phoneErr");
+  var addressErr = document.getElementById("addressErr");
+  var successMessage = document.getElementById("successMessage");
+
+  var isValid = true;
+
+  // First Name Validation
+  var nameRegex = /^[A-Za-z]+$/;
+  if (firstname === "") {
+    firstnameErr.textContent = "First name is required";
+    isValid = false;
+  } else if (!nameRegex.test(firstname)) {
+    firstnameErr.textContent = "First name should contain only letters";
+    isValid = false;
+  } else {
+    firstnameErr.textContent = "";
+  }
+
+  // Last Name Validation
+  if (lastname === "") {
+    lastnameErr.textContent = "Last name is required";
+    isValid = false;
+  } else if (!nameRegex.test(lastname)) {
+    lastnameErr.textContent = "Last name should contain only letters";
+    isValid = false;
+  } else {
+    lastnameErr.textContent = "";
+  }
+
+  // Email Validation
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (email === "") {
+    emailErr.textContent = "Email is required";
+    isValid = false;
+  } else if (!emailRegex.test(email)) {
+    emailErr.textContent = "Invalid email format";
+    isValid = false;
+  } else {
+    emailErr.textContent = "";
+  }
+
+  // Phone Number Validation
+  var phoneRegex = /^[0-9]{10}$/;
+  if (phone === "") {
+    phoneErr.textContent = "Phone number is required";
+    isValid = false;
+  } else if (!phoneRegex.test(phone)) {
+    phoneErr.textContent = "Phone number should contain 10 digits";
+    isValid = false;
+  } else {
+    phoneErr.textContent = "";
+  }
+
+  // Address Validation
+  if (address === "") {
+    addressErr.textContent = "Address is required";
+    isValid = false;
+  } else {
+    addressErr.textContent = "";
+  }
+
+  if (isValid) {
+    successMessage.style.display = "block";
+    // You can add further actions here, like submitting the form data
+    // For this example, we are just showing a success message.
+  } else {
+    successMessage.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>

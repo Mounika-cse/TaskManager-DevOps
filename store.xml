@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE books SYSTEM "store.dtd">
+<books>
+<book>
+<title>Monty python</title>
+<author>Van rossum</author>
+<publisher>mounika</publisher>
+<edition>12</edition>
+<price>90</price>
+<isbn>123-6789012356</isbn>
+</book>
+<book>
+<title>Wings of fire</title>
+<author>Adbdul kalam</author>
+<publisher>mounika</publisher>
+<edition>22</edition>
+<price>170</price>
+<isbn>783-6789012456</isbn>
+</book>
+</books>

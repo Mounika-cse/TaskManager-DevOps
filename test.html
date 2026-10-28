@@ -1,0 +1,35 @@
+<html>
+<style>
+body{
+font-weight:bold;
+}
+h1{
+font color:Black;
+}
+button{
+bgcolor:black;
+}
+</style>
+<body bgcolor="powderblue">
+<h1>Click the country to find its capital</h1>
+<button onclick="displaycapital('India')">India</button><br><br>
+<button onclick="displaycapital('Us')">Us</button><br><br>
+<button onclick="displaycapital('UK')">UK</button><br><br>
+<button onclick="displaycapital('SA')">SA</button><br><br>
+<button onclick="displaycapital('JAP')">JAP</button><br><br>
+<p id="capital">
+<script>
+function displaycapital(country){
+var capitals={
+"India":"Newdelhi",
+"Us":"W.c",
+"UK":"london",
+"SA":"pretoria",
+"JAP":"TOKYO"
+};
+document.getElementById("capital").innerHTML="Capital is"+ capitals[country]
+}
+</script>
+</style>
+</body>
+</html>
