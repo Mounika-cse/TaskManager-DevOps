@@ -2,6 +2,10 @@
 pipeline {
     agent any
 
+    options {
+        disableConcurrentBuilds()
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -23,11 +27,7 @@ pipeline {
 
         stage('Load Image into Kubernetes') {
             steps {
-                bat '''
-                    docker save -o task-manager.tar task-manager:latest
-                    docker cp task-manager.tar desktop-control-plane:/tmp/task-manager.tar
-                    docker exec desktop-control-plane ctr -n k8s.io images import /tmp/task-manager.tar
-                '''
+                bat 'docker save task-manager:latest | docker exec -i desktop-control-plane ctr -n k8s.io images import -'
             }
         }
 
@@ -37,7 +37,7 @@ pipeline {
                     kubectl apply -f kubernetes\\deployment.yaml
                     kubectl apply -f kubernetes\\service.yaml
                     kubectl rollout restart deployment/task-manager-deployment
-                    kubectl rollout status deployment/task-manager-deployment --timeout=120s
+                    kubectl rollout status deployment/task-manager-deployment --timeout=180s
                 '''
             }
         }
