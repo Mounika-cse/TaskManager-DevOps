@@ -1,32 +1,165 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Task Manager</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow | Task Manager</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Task Manager</h1>
-    <form id="task-form">
-      <input type="text" id="task-desc" placeholder="Task description" required>
-      <input type="date" id="task-date">
-      <select id="task-priority">
-        <option value="Low">Low</option>
-        <option value="Medium">Medium</option>
-        <option value="High">High</option>
-      </select>
-      <button type="submit">Add Task</button>
-    </form>
 
-    <div class="button-group">
-      <button id="show-pending">Show Pending Tasks</button>
-      <button id="show-completed">Show Completed Tasks</button>
-    </div>
+  <div class="app-layout">
 
-    <ul id="task-list"></ul>
+    <aside class="sidebar">
+      <div class="logo">✦ TaskFlow</div>
+
+      <nav class="sidebar-nav">
+        <a href="#" class="active">▦ Dashboard</a>
+        <a href="#task-section">☑ My Tasks</a>
+        <a href="#task-form">＋ Add Task</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <p>Stay focused.</p>
+        <span>Make every day productive ✨</span>
+      </div>
+    </aside>
+
+    <main class="main-content">
+
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">PERSONAL PRODUCTIVITY</p>
+          <h2>My Dashboard</h2>
+        </div>
+
+        <div class="notification-area">
+          <button id="notification-btn" type="button"
+                  aria-label="View notifications">
+            🔔 <span id="notification-count">0</span>
+          </button>
+          <div id="notification-panel" class="notification-panel" hidden>
+            <h3>Task Reminders</h3>
+            <div id="notification-list"></div>
+            <button id="enable-notifications" type="button">
+              Enable Desktop Notifications
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-text">
+          <span class="hero-tag">YOUR PRODUCTIVITY SPACE</span>
+          <h1>Organize your tasks.<br>Achieve your goals.</h1>
+          <p>Plan your day, prioritize important work and
+             never miss a deadline.</p>
+          <a href="#task-form" class="hero-button">+ Create New Task</a>
+        </div>
+
+        <div class="hero-illustration" aria-hidden="true">
+          <div class="illustration-card">
+            <div class="illustration-icon">📋</div>
+            <div class="illustration-line"></div>
+            <div class="illustration-line short"></div>
+            <div class="illustration-check">✓</div>
+            <div class="illustration-star">✦</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats">
+        <div class="stat-card">
+          <span class="stat-icon purple">📋</span>
+          <p>Total Tasks</p>
+          <h2 id="total-tasks">0</h2>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-icon orange">⏳</span>
+          <p>Pending Tasks</p>
+          <h2 id="pending-tasks">0</h2>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-icon green">✓</span>
+          <p>Completed Tasks</p>
+          <h2 id="completed-tasks">0</h2>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-icon pink">🔔</span>
+          <p>Due Today</p>
+          <h2 id="due-today">0</h2>
+        </div>
+      </section>
+
+      <section class="form-section" id="task-form-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">PLAN YOUR WORK</p>
+            <h2>Create a New Task</h2>
+          </div>
+        </div>
+
+        <form id="task-form">
+          <div class="form-grid">
+            <div class="form-field task-name-field">
+              <label for="task-desc">Task Description</label>
+              <input type="text" id="task-desc"
+                     placeholder="e.g. Complete CN assignment"
+                     maxlength="150" required>
+            </div>
+
+            <div class="form-field">
+              <label for="task-date">Due Date</label>
+              <input type="date" id="task-date" required>
+            </div>
+
+            <div class="form-field">
+              <label for="task-priority">Priority Level</label>
+              <select id="task-priority">
+                <option value="Low">🟢 Low Priority</option>
+                <option value="Medium">🟡 Medium Priority</option>
+                <option value="High">🔴 High Priority</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="add-task-btn">
+            + Add Task
+          </button>
+        </form>
+      </section>
+
+      <section class="tasks-section" id="task-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">STAY ON TRACK</p>
+            <h2>My Tasks</h2>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button id="show-pending" type="button">
+            Pending Tasks
+          </button>
+          <button id="show-completed" type="button">
+            Completed Tasks
+          </button>
+        </div>
+
+        <ul id="task-list"></ul>
+      </section>
+
+      <footer>
+        TaskFlow © 2026 · Plan better. Achieve more.
+      </footer>
+
+    </main>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
